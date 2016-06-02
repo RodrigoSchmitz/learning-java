@@ -24,12 +24,19 @@ import model.Funcionario;
  */
 @ManagedBean
 public class FuncionarioController {
-
-    @PersistenceUnit (unitName="exemplosPU")
-    EntityManagerFactory factory;
     
+    /**
+     * @PersistenceUnit indica uma unidade de persistencia
+     * Unidade de persistencia de nome funcionarioPU
+     */
+    @PersistenceUnit (unitName="funcionarioPU")
+    EntityManagerFactory factory;
     Funcionario funcionario;
     
+    /**
+     * Método que busca um funcionário pelo id na base de dados
+     * @param id 
+     */
     public void lerFuncionario (Integer id){
         EntityManager em = factory.createEntityManager();
         funcionario = em.find(Funcionario.class, id);

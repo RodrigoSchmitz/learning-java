@@ -38,7 +38,7 @@ public class Funcionario implements Serializable {
      * @transient marca quando um atributo não faz parte das oprações de persistencia
      */
     @Transient
-    private Edereco endereco;
+    private Endereco endereco;
     
     /**
      * O atributo ramal se liga a coluna nr_ramal da tabela
@@ -59,5 +59,65 @@ public class Funcionario implements Serializable {
     @Temporal (TemporalType.DATE)
     @Column (name="dt_admissao", nullable=false)
     private Date admissao;
+
+    public Funcionario(Integer id, String nome, Endereco endereco, short ramal, int matricula, Date admissao) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.ramal = ramal;
+        this.matricula = matricula;
+        this.admissao = admissao;
+    }
+
+    public Funcionario() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public short getRamal() {
+        return ramal;
+    }
+
+    public void setRamal(short ramal) {
+        this.ramal = ramal;
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+
+    public Date getAdmissao() {
+        return admissao;
+    }
+
+    public void setAdmissao(Date admissao) {
+        this.admissao = admissao;
+    }
 
 }
