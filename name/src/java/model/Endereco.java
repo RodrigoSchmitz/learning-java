@@ -13,6 +13,7 @@ package model;
 class Endereco {
     
     private String rua;
+    private Funcionario funcionario;
 
     public Endereco(String rua) {
         this.rua = rua;
