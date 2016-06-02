@@ -34,10 +34,23 @@ public class Funcionario implements Serializable {
     @Column (name="tx_nome", nullable=false)
     private String nome;
     
+     /**
+ 
+     */
+    
     /**
      * @transient marca quando um atributo não faz parte das oprações de persistencia
+     * @OneToOne define que esse atributo e um atributo de chave que liga duas tabelas onde uma tupla se liga a apenas uma tupla da outra tabela
+     * @OneToMany define que esse atributo se ligara a mais de uma tupla na outra tabela
+     * @ManyToOne define que essa tupla e uma das tuplas que se relacionam com a tupla da outra tabela
+     * @ManyToMany define quando essa tupla pode estar relacionada a varias tuplas da outra tabela e uma tupla da outra tabela pode estar relacionado a varias tuplas dessa tabela
+     * @JoinColumn configura a chave estrangeira na entidade dona do relacionamento
+     * @OrderBy(value="Column DESC/ASC") ordena um select especificando a coluna e se é de ordem ascendente e descendente 
+     * @OderColumn especifica a coluna que e usada para persistir a ordem da lista
+     * @InverseJoinColumns especifica a chave estranjeita da ponta inversa do relacionamento
      */
-    @Transient
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "cd_endereco")
     private Endereco endereco;
     
     /**
