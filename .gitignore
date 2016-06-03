@@ -12,3 +12,11 @@
 hs_err_pid*
 /name/build/
 /name/nbproject/private/
+/TestWebService/nbproject/private/
+/TestWebService/build/
+/MyTestWebService/nbproject/private/
+/WebApplicationTest/nbproject/private/
+/MyTestWebService/build/
+/MyTestWebService/dist/
+/WebApplicationTest/build/
+/WebApplicationTest/dist/

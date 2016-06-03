@@ -15,7 +15,15 @@ import javax.persistence.*;
  * @author Rodrigo Martins Schmitz
  * Este é uma classe de estudo na parte de persistencia de java
  * Serializable indica que os atributos podem ser serializados onde cada atributo se relaciona ou não a uma coluna da tabela de banco de dados
+ * @NamedQuery permite montar uma query apenas uma vez a tornando imutavel criando um alias para ela para que possa chamar esse alias passando os parametros necessarios para a consulta
+ * @NamedQueries essa anotation indica quando estas "declarando" mais de uma @NamedQuery na classe de entidade
  */
+@Entity
+@Table(name = "funcionario")
+@NamedQueries(value = {
+    @NamedQuery(name = "Funcionario.listAll", 
+            query = "SELECT f FROM Funcionario f ORDER BY f.nome")
+})
 public class Funcionario implements Serializable {
     /**
      * @Id indica que o atributo abaixo equivale ao ID da databse 
@@ -33,11 +41,7 @@ public class Funcionario implements Serializable {
      */
     @Column (name="tx_nome", nullable=false)
     private String nome;
-    
-     /**
- 
-     */
-    
+      
     /**
      * @transient marca quando um atributo não faz parte das oprações de persistencia
      * @OneToOne define que esse atributo e um atributo de chave que liga duas tabelas onde uma tupla se liga a apenas uma tupla da outra tabela

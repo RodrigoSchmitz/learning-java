@@ -64,6 +64,7 @@ public class FuncionarioDAOBean {
             throw new Exception("Funcionario invalido");
         }
         eManager.merge(f);
+        eManager.flush();
     }
     
     /**
@@ -79,6 +80,7 @@ public class FuncionarioDAOBean {
             throw new Exception("Funcionario inexistente para remocao");
         }
         eManager.remove(f);
+        eManager.flush();
         return f;
     }
 
